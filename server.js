@@ -4,19 +4,46 @@ var path = require('path');
 
 var app = express();
 app.use(morgan('combined'));
+var article ={
+    
+'article-one' : {
+title: 'Article One | Rishab Jain',
+heading: 'Article one',
+date: 'Sep 2 2017',
+content: ` 
+<p>
+Hello guys myself Rishab and i am trying to learn new things. It just like i am tryin to find a goal.
+</p>
+<p>
+Ohk lets what i can do for it.
 
-var articleone = {
-    title: 'Article One | Rishab Jain',
-    heading: 'Article one',
-    date: 'Sep 2 2017',
-    content: ` 
-    <p>
-           Hello guys myself Rishab and i am trying to learn new things. It just like i am tryin to find a goal.
-       </p>
-       <p>
-           Ohk lets what i can do for it.
-           
-       </p> `
+</p> `},
+'article-two' : {
+    title: 'Article Two | Rishab Jain',
+heading: 'Article Two',
+date: 'Sep 10 2017',
+content: ` 
+<p>
+Hello guys myself Rishab and i am trying to learn new things. It just like i am tryin to find a goal.
+</p>
+<p>
+Ohk lets what i can do for it.
+
+</p> `
+},
+'article-three':{
+    title: 'Article Three | Rishab Jain',
+heading: 'Article Three',
+date: 'Sep 12 2017',
+content: ` 
+<p>
+Hello guys myself Rishab and i am trying to learn new things. It just like i am tryin to find a goal.
+</p>
+<p>
+Ohk lets what i can do for it.
+
+</p> `
+}
 };
 function createtemp(data){
  var title = data.title;
@@ -57,21 +84,11 @@ function createtemp(data){
 app.get('/', function (req, res) {
   res.sendFile(path.join(__dirname, 'ui', 'index.html'));
 });
-app.get('/article-one',function(req, res){
-   res.send(createtemp(articleone));
+app.get('/:articlename',function(req, res){
+    var articlename= req.params.articlename;
+   res.send(createtemp(article[articlename]));
 });
-app.get('/article-two',function(req, res){
-   res.sendFile(path.join(__dirname, 'ui', 'article-two.html'));
-});
-app.get('/article-three',function(req, res){
-   res.sendFile(path.join(__dirname, 'ui', 'article-three.html'));
-});
-app.get('/article-two',function(req, res){
-    res.send('Article two requested and will be served here');
-});
-app.get('/article-three',function(req, res){
-    res.send('Article three requested and will be served here');
-});
+
 
 app.get('/ui/style.css', function (req, res) {
   res.sendFile(path.join(__dirname, 'ui', 'style.css'));
