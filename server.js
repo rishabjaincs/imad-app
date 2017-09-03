@@ -18,6 +18,11 @@ var articleone - {
            
        </p> `
 };
+function createtemp(data){
+ var tilte = data.title;
+ var date = data.date;
+ var heading = data.heading;
+ var content = data.content;
  var template - 
      `<!DOCTYPE html>
 <html>
@@ -47,11 +52,13 @@ var articleone - {
 </html>
 `
  ;
+ return template;
+}
 app.get('/', function (req, res) {
   res.sendFile(path.join(__dirname, 'ui', 'index.html'));
 });
 app.get('/article-one',function(req, res){
-   res.sendFile(path.join(__dirname, 'ui', 'article-one.html'));
+   res.send(createtemp(articleone))
 });
 app.get('/article-two',function(req, res){
    res.sendFile(path.join(__dirname, 'ui', 'article-two.html'));
