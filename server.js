@@ -5,7 +5,7 @@ var path = require('path');
 var app = express();
 app.use(morgan('combined'));
 
-var articleone - {
+var articleone = {
     title: 'Article One | Rishab Jain',
     heading: 'Article one',
     date: 'Sep 2 2017',
@@ -23,7 +23,7 @@ function createtemp(data){
  var date = data.date;
  var heading = data.heading;
  var content = data.content;
- var template - 
+ var template = 
      `<!DOCTYPE html>
 <html>
     <head>
