@@ -88,6 +88,10 @@ app.get('/:articlename',function(req, res){
     var articlename= req.params.articlename;
    res.send(createtemp(article[articlename]));
 });
+app.get('/counter', function(req,res){
+    counter = counter +1;
+    res.send(counter.toString());
+});
 
 
 app.get('/ui/style.css', function (req, res) {
