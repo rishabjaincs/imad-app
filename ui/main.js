@@ -5,7 +5,7 @@ element.innerHTML='New Value';
 var image = document.getElementById('madi');
 image.onclick = function(){
     image.style.marginLeft = '100px';
-};
-image.onclick = function(){
+    image.onclick = function(){
     image.style.marginRight = '100px';
+};
 };
